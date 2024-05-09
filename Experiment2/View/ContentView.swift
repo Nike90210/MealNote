@@ -79,12 +79,14 @@ struct ContentView: View {
                 Picker("", selection: $viewModel.productPicker) {
                     ForEach(viewModel.product) {tag in
                         Text(tag.title).tag(tag)
+                            .foregroundStyle(Color(.white))
+                            .fontWeight(.bold)
+                            .font(.title2)
                     }
                 }
+                .frame(width: 300, height: 50)
                 .pickerStyle(.wheel)
-                .foregroundStyle(Color(.white))
                 .background(Color(.clear))
-                .fontWeight(.medium)
                 .padding()
             }
             VStack {
@@ -111,7 +113,7 @@ struct ContentView: View {
                 }
                 .listStyle(.plain)
             }
-            .frame(width: 370, height: 300)
+            .frame(width: 370, height: 240)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .padding(.horizontal, 20)
             .shadow(radius: 4)

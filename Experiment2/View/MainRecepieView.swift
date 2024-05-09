@@ -13,12 +13,12 @@ struct MainRecepieView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
+                if viewModel.recepieList.isEmpty {
+                    Text("Добавьте свой первый рецепт")
+                }
                 ListView()
                     .environmentObject(viewModel)
-                if viewModel.recepieList.isEmpty {
-                    Text("Добавте свой первый рецепт")
-                }
                 if isAnimation {
                     CreateRecepieView(viewModel: CustomRecepiesViewModel(custom: CustomRecepieModel()))
                         .environmentObject(viewModel)
@@ -42,8 +42,6 @@ struct MainRecepieView: View {
                         .shadow(radius: 4)
                 }
             }
-        }.onAppear {
-            viewModel.getRecepieList()
         }
         .padding()
         .background(
@@ -52,11 +50,7 @@ struct MainRecepieView: View {
                 .aspectRatio(contentMode: .fill)
         )
     }
-
 }
-
-
-
 
 #Preview {
     MainRecepieView(viewModel: MainRecepieViewModel())

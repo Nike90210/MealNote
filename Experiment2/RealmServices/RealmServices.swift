@@ -76,7 +76,8 @@ class RealmServices {
         return results
     }
 
-    func updateRecepie(_ recepie: CustomRecepieModel, title: String,
+    func updateRecepie(_ recepie: CustomRecepieModel,
+                       title: String,
                        description: String,
                        ingredients: String,
                        category: String,

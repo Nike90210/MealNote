@@ -49,7 +49,7 @@ struct CreateRecepieView: View {
                 } else {
                     viewModel.saveRecepies()
                 }
-               mainViewModel.getRecepieList()
+                mainViewModel.getRecepieList()
                 dismiss()
             } label: {
                 Text("Сохранить")
@@ -65,15 +65,15 @@ struct CreateRecepieView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
-Image("stag")
-    .resizable()
-    .aspectRatio(contentMode: .fill)
+            Image("stag")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
         )
     }
 }
 
 
 #Preview {
-  
+
     CreateRecepieView(viewModel: CustomRecepiesViewModel(custom: CustomRecepieModel(recepieTitle: "", recepieDescription: "", inredients: "", mealCategory: .desert)))
 }

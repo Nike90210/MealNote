@@ -12,6 +12,7 @@ struct ListView: View {
     @EnvironmentObject var viewModel: MainRecepieViewModel
 
     var body: some View {
+        VStack {
             List {
                 ForEach(0..<viewModel.recepieList.count, id: \.self) { index in
                     NavigationLink {
@@ -26,9 +27,10 @@ struct ListView: View {
                                 .shadow(radius: 4)
 
                             Text(viewModel.recepieList[index].recepieTitle)
-                                .modifier(CellModifire(isShadow: true))
+                               .modifier(CellModifire(isShadow: true))
+                        }
 
-                        } .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button {
                                 viewModel.deleteRecepie(viewModel.recepieList[index])
                             } label: {
@@ -38,8 +40,13 @@ struct ListView: View {
                         }
                     }
                 }
+
             }
-            .listStyle(.plain)
+            .listStyle(.grouped)
+            .onAppear {
+                viewModel.getRecepieList()
+            }
+        }
     }
 }
 

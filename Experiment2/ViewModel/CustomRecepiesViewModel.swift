@@ -38,7 +38,8 @@ class CustomRecepiesViewModel: ObservableObject {
 
     func updateRecepiesList() {
         guard let customRecepie else { return }
-        RealmServices.shared.updateRecepie(customRecepie, title: title,
+        RealmServices.shared.updateRecepie(customRecepie,
+                                           title: title,
                                            description: description,
                                            ingredients: ingredients,
                                            category: mealCategory.rawValue) {
